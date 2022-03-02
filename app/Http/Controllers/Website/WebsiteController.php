@@ -19,6 +19,21 @@ class WebsiteController extends Controller
     {
         return view('website.services');
     }
+    public function ourteam()
+    {
+        return view('website.ourteam');
+    }
+
+    public function casestudies()
+    {
+        return view('website.casestudies');
+    }
+
+    public function blog()
+    {
+        return view('website.blog');
+    }
+
     public function contactus()
     {
         return view('website.contact');

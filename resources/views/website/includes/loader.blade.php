@@ -1,7 +1,3 @@
-<div id="preloader">
-    <div class="jumper">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+<div id="loader" class="loader">
+    <div class="loader-container"></div>
 </div>

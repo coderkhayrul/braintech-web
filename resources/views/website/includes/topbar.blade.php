@@ -1,18 +1,34 @@
-<div class="sub-header">
+<div class="topbar-area">
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-xs-12">
-                <ul class="left-info">
-                    <li><a href="#"><i class="fa fa-clock-o"></i>Mon-Fri 09:00-17:00</a></li>
-                    <li><a href="#"><i class="fa fa-phone"></i>090-080-0760</a></li>
-                </ul>
+        <div class="row rs-vertical-middle">
+            <div class="col-lg-2">
+                <div class="logo-part">
+                    <a href="index.html"><img src="{{ asset('website') }}/assets/images/logo-dark.png" alt=""></a>
+                </div>
             </div>
-            <div class="col-md-4">
-                <ul class="right-icons">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+            <div class="col-lg-10 text-right">
+                <ul class="rs-contact-info">
+                    <li class="contact-part">
+                        <i class="flaticon-location"></i>
+                        <span class="contact-info">
+                            <span>Address</span>
+                            05 kandi BR. New York
+                        </span>
+                    </li>
+                    <li class="contact-part">
+                        <i class="flaticon-email"></i>
+                        <span class="contact-info">
+                            <span>E-mail</span>
+                            <a href="#"> support@rstheme.com</a>
+                        </span>
+                    </li>
+                    <li class="contact-part no-border">
+                        <i class="flaticon-call"></i>
+                        <span class="contact-info">
+                            <span>Phone</span>
+                            +019988772
+                        </span>
+                    </li>
                 </ul>
             </div>
         </div>

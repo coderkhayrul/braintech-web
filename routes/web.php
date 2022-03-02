@@ -41,6 +41,9 @@ Auth::routes();
 Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
 Route::get('/about', [WebsiteController::class, 'about'])->name('website.about');
 Route::get('/service', [WebsiteController::class, 'service'])->name('website.service');
+Route::get('/our-team', [WebsiteController::class, 'ourteam'])->name('website.ourteam');
+Route::get('/case-studies', [WebsiteController::class, 'casestudies'])->name('website.casestudies');
+Route::get('/blog', [WebsiteController::class, 'blog'])->name('website.blog');
 Route::get('/contact-us', [WebsiteController::class, 'contactus'])->name('website.contactus');
 
 // Admin Route List

@@ -11,7 +11,7 @@
         <div class="menu-area menu-sticky">
             <div class="container">
                 <div class="logo-area">
-                    <a href="index.html">
+                    <a href="{{ route('website.home') }}">
                         <img class="sticky-logo" src="{{ asset('website') }}/assets/images/logo-dark.png" alt="logo">
                     </a>
                 </div>
@@ -27,30 +27,30 @@
                         </div>
                         <nav class="rs-menu">
                             <ul class="nav-menu">
-                                <li>
+                                <li class="{{  request()->routeIs('website.home') ? 'current-menu-item' : '' }}">
                                     <a href="{{ route('website.home') }}">Home</a>
                                 </li>
 
-                                <li>
+                                <li class="{{  request()->routeIs('website.about') ? 'current-menu-item' : '' }}">
                                     <a href="{{ route('website.about') }}">About</a>
                                 </li>
-                                <li>
+                                <li class="{{  request()->routeIs('website.service') ? 'current-menu-item' : '' }}">
                                     <a href="{{ route('website.service') }}">Services</a>
                                 </li>
 
-                                <li>
+                                <li class="{{  request()->routeIs('website.ourteam') ? 'current-menu-item' : '' }}">
                                     <a href="{{ route('website.ourteam') }}">Our Team</a>
                                 </li>
 
-                                <li>
+                                <li class="{{  request()->routeIs('website.casestudies') ? 'current-menu-item' : '' }}">
                                     <a href="{{ route('website.casestudies') }}">Case Studies</a>
                                 </li>
 
-                                <li>
+                                <li class="{{  request()->routeIs('website.blog') ? 'current-menu-item' : '' }}">
                                     <a href="{{ route('website.blog') }}">Blog</a>
                                 </li>
 
-                                <li>
+                                <li class="{{  request()->routeIs('website.contactus') ? 'current-menu-item' : '' }}">
                                     <a href="{{ route('website.contactus') }}">Contact</a>
                                 </li>
                             </ul> <!-- //.nav-menu -->

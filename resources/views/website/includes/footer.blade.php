@@ -83,16 +83,16 @@
             <div class="row y-middle">
                 <div class="col-lg-6 text-right md-mb-10 order-last">
                     <ul class="copy-right-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="{{ route('website.home') }}">Home</a></li>
+                        <li><a href="{{ route('website.about') }}">About</a></li>
+                        <li><a href="{{ route('website.blog') }}">Blog</a></li>
+                        <li><a href="{{ route('website.home') }}">Shop</a></li>
+                        <li><a href="{{ route('website.home') }}">FAQs</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
                     <div class="copyright">
-                        <p>&copy; 2021 All Rights Reserved. Developed By <a href="http://rstheme.com/">RSTheme</a>
+                        <p>&copy; 2021 All Rights Reserved. Developed By <a href="https://coderkhayrul.xyz/">Khayrul Shanto</a>
                         </p>
                     </div>
                 </div>
@@ -162,7 +162,5 @@
 <!-- main js -->
 <script src="{{ asset('website') }}/assets/js/main.js"></script>
 </body>
-
-<!-- Mirrored from rstheme.com/products/html/braintech/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Feb 2022 10:33:49 GMT -->
 
 </html>

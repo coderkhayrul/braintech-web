@@ -8,6 +8,7 @@
         @php
             $banners = App\Models\Banner::where('ban_status', 1)
                 ->orderBy('ban_order', 'ASC')
+                ->limit(2)
                 ->get();
         @endphp
         @foreach ($banners as $key => $banner)

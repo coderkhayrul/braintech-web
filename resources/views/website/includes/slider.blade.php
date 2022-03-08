@@ -6,9 +6,10 @@
         data-ipad-device2="1" data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="1"
         data-md-device-nav="true" data-md-device-dots="false">
         @php
-            $banners = App\Models\Banner::where('ban_status', 1)->get();
+            $banners = App\Models\Banner::where('ban_status', 1)
+                ->orderBy('ban_order', 'ASC')
+                ->get();
         @endphp
-        {{-- @dd($banners); --}}
         @foreach ($banners as $key => $banner)
             <div class="slider-content slide{{ $key }}"
                 style="background-image: url('{{ asset('uploads/banner/' . $banner['ban_image']) }}')">

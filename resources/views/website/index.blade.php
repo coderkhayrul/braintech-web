@@ -81,6 +81,12 @@
     <!-- About Section End -->
 
     <!-- Services Section Start -->
+    @php
+    $services_2 = App\Models\Service::where('service_status', 1)
+        ->orderBy('service_order', 'DESC')
+        ->limit(6)
+        ->get();
+    @endphp
     <div class="pt-relative rs-services style4 modify1 services3 gray-color pt-120 md-pt-80">
         <div class="container">
             <div class="sec-title2 text-center mb-45">
@@ -93,93 +99,26 @@
         <div class="bg-section pb-120 md-pb-80">
             <div class="container">
                 <div class="row gray-color pb-35 pl-25 pr-25 md-pl-0 md-pr-0">
-                    <div class="col-lg-4 col-md-6 mb-20">
-                        <div class="services-item">
-                            <div class="services-icon">
-                                <img src="{{ asset('website') }}/assets/images/services/main-home/icons/1.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h2 class="title"><a href="software-development.html">Software Development</a></h2>
-                                <p class="desc">
-                                    At vero eos et accusamus etiusto odio praesentium accusamus etiusto odio data
-                                    center.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-20">
-                        <div class="services-item">
-                            <div class="services-icon">
-                                <img src="{{ asset('website') }}/assets/images/services/main-home/icons/2.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h2 class="title"><a href="web-development.html">Web Development</a></h2>
-                                <p class="desc">
-                                    At vero eos et accusamus etiusto odio praesentium accusamus etiusto odio data
-                                    center.
-                                </p>
+                    @foreach ($services_2 as $serv)
+                        <div class="col-lg-4 col-md-6 mb-20">
+                            <div class="services-item">
+                                <div class="services-icon">
+                                    <img src="{{ asset('uploads/service/' . $serv['service_image']) }}" alt="">
+                                </div>
+                                <div class="services-content">
+                                    <h2 class="title"><a
+                                            href="software-development.html">{{ $serv['service_title'] }}</a>
+                                    </h2>
+                                    <p class="desc">
+                                        {{ $serv['service_subtitle'] }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-20">
-                        <div class="services-item">
-                            <div class="services-icon">
-                                <img src="{{ asset('website') }}/assets/images/services/main-home/icons/3.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h2 class="title"><a href="analytic-solutions.html">Analytic Solutions</a></h2>
-                                <p class="desc">
-                                    At vero eos et accusamus etiusto odio praesentium accusamus etiusto odio data
-                                    center.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 md-mb-20">
-                        <div class="services-item">
-                            <div class="services-icon">
-                                <img src="{{ asset('website') }}/assets/images/services/main-home/icons/4.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h2 class="title"><a href="cloud-and-devops.html">Clould & DevOps</a></h2>
-                                <p class="desc">
-                                    At vero eos et accusamus etiusto odio praesentium accusamus etiusto odio data
-                                    center.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 sm-mb-20">
-                        <div class="services-item">
-                            <div class="services-icon">
-                                <img src="{{ asset('website') }}/assets/images/services/main-home/icons/5.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h2 class="title"><a href="product-design.html">Product & Design</a></h2>
-                                <p class="desc">
-                                    At vero eos et accusamus etiusto odio praesentium accusamus etiusto odio data
-                                    center.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="services-item">
-                            <div class="services-icon">
-                                <img src="{{ asset('website') }}/assets/images/services/main-home/icons/6.png" alt="">
-                            </div>
-                            <div class="services-content">
-                                <h2 class="title"><a href="data-center.html">Data Center</a></h2>
-                                <p class="desc">
-                                    At vero eos et accusamus etiusto odio praesentium accusamus etiusto odio data
-                                    center.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="btn-part text-center mt-65">
-                    <a class="readon learn-more contact-us" href="web-development.html">View All Services</a>
+                    <a class="readon learn-more contact-us" href="{{ route('website.service') }}">View All Services</a>
                 </div>
             </div>
             <div class="shape-part">

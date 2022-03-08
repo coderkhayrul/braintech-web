@@ -878,6 +878,11 @@
     <!-- Blog Section End -->
 
     <!-- Partner Start -->
+    @php
+    $partners = App\Models\Partner::where('partner_status', 1)
+        ->OrderBy('partner_id', 'ASC')
+        ->get();
+    @endphp
     <div class="rs-partner pt-80 pb-70">
         <div class="container">
             <div class="rs-carousel owl-carousel" data-loop="true" data-items="5" data-margin="30" data-autoplay="true"
@@ -887,78 +892,18 @@
                 data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="5" data-md-device-nav="false"
                 data-md-device-dots="false">
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="https://rstheme.com/">
-                            <img class="hover-logo" src="{{ asset('website') }}/assets/images/partner/1.png" alt="">
-                            <img class="main-logo" src="{{ asset('website') }}/assets/images/partner/1.png" alt="">
-                        </a>
+                @foreach ($partners as $partner)
+                    <div class="partner-item">
+                        <div class="logo-img">
+                            <a href="https://{{ $partner['partner_url'] }}" target="_blank">
+                                <img class="hover-logo"
+                                    src="{{ asset('uploads/partner/' . $partner['partner_logo']) }}" alt="">
+                                <img class="main-logo"
+                                    src="{{ asset('uploads/partner/' . $partner['partner_logo']) }}" alt="">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="https://rstheme.com/">
-                            <img class="hover-logo" src="{{ asset('website') }}/assets/images/partner/2.png" alt="">
-                            <img class="main-logo" src="{{ asset('website') }}/assets/images/partner/2.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="https://rstheme.com/">
-                            <img class="hover-logo" src="{{ asset('website') }}/assets/images/partner/3.png" alt="">
-                            <img class="main-logo" src="{{ asset('website') }}/assets/images/partner/3.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="https://rstheme.com/">
-                            <img class="hover-logo" src="{{ asset('website') }}/assets/images/partner/4.png" alt="">
-                            <img class="main-logo" src="{{ asset('website') }}/assets/images/partner/4.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="https://rstheme.com/">
-                            <img class="hover-logo" src="{{ asset('website') }}/assets/images/partner/5.png" alt="">
-                            <img class="main-logo" src="{{ asset('website') }}/assets/images/partner/5.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="https://rstheme.com/">
-                            <img class="hover-logo" src="{{ asset('website') }}/assets/images/partner/6.png" alt="">
-                            <img class="main-logo" src="{{ asset('website') }}/assets/images/partner/6.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="https://rstheme.com/">
-                            <img class="hover-logo" src="{{ asset('website') }}/assets/images/partner/7.png" alt="">
-                            <img class="main-logo" src="{{ asset('website') }}/assets/images/partner/7.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="https://rstheme.com/">
-                            <img class="hover-logo" src="{{ asset('website') }}/assets/images/partner/8.png" alt="">
-                            <img class="main-logo" src="{{ asset('website') }}/assets/images/partner/8.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="partner-item">
-                    <div class="logo-img">
-                        <a href="https://rstheme.com/">
-                            <img class="hover-logo" src="{{ asset('website') }}/assets/images/partner/9.png" alt="">
-                            <img class="main-logo" src="{{ asset('website') }}/assets/images/partner/9.png" alt="">
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

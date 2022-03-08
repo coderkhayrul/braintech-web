@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Newsletter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class WebsiteController extends Controller
 {
@@ -37,5 +40,25 @@ class WebsiteController extends Controller
     public function contactus()
     {
         return view('website.contact');
+    }
+
+    public function newsletter(Request $request){
+        $this->validate($request,[
+            'ns_email' => 'required|email'
+        ]);
+        $slug = uniqid();
+        $insert = Newsletter::create([
+            'ns_email' => $request['ns_email'],
+            'ns_slug' => $slug,
+            'created_at' => Carbon::now()->toDateTimeString(),
+        ]);
+
+        if ($insert) {
+            Session::flash('success', 'Successfully Subscribe');
+            return redirect()->back();
+        } else {
+            Session::flash('error', 'Subscribe Failed!');
+            return redirect()->back();
+        }
     }
 }

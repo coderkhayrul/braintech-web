@@ -16,6 +16,7 @@ class CreateBannersTable extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->bigIncrements('ban_id');
             $table->string('ban_title',100)->nullable();
+            $table->text('ban_mid_title' ,100)->nullable();
             $table->text('ban_subtitle')->nullable();
             $table->string('ban_button',30)->nullable();
             $table->string('ban_url',190)->nullable();

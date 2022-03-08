@@ -59,6 +59,7 @@ class BannerController extends Controller
 
         $insert = Banner::insertGetId([
             'ban_title' => $request['ban_title'],
+            'ban_mid_title' => $request['ban_mid_title'],
             'ban_subtitle' => $request['ban_subtitle'],
             'ban_button' => $request['ban_button'],
             'ban_url' => $request['ban_url'],
@@ -134,6 +135,7 @@ class BannerController extends Controller
         $editor = Auth::user()->id;
         $update = Banner::where('ban_status', 1)->where('ban_id', $id)->where('ban_slug', $slug)->update([
             'ban_title' => $request['ban_title'],
+            'ban_mid_title' => $request['ban_mid_title'],
             'ban_subtitle' => $request['ban_subtitle'],
             'ban_button' => $request['ban_button'],
             'ban_url' => $request['ban_url'],

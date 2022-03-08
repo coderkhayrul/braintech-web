@@ -1,29 +1,37 @@
 <!-- Footer Start -->
+@php
+$basic = App\Models\Basic::where('id', 1)->where('basic_status', 1)->firstOrFail();
+$con_info = App\Models\ContactInformation::where('id', 1)->where('cont_status', 1)->firstOrFail();
+$social = App\Models\SocialMedia::where('id', 1)->where('sm_status', 1)->firstOrFail();
+@endphp
 <footer id="rs-footer" class="rs-footer">
     <div class="footer-top">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-12 col-sm-12 footer-widget">
                     <div class="footer-logo mb-30">
-                        <a href="index.html"><img src="{{ asset('website') }}/assets/images/logo-dark.png" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('uploads/basic/' . $basic['basic_logo']) }}" alt=""></a>
                     </div>
                     <div class="textwidget pb-30">
-                        <p>Sedut perspiciatis unde omnis iste natus error sitlutem acc usantium doloremque denounce
-                            with illo inventore veritatis</p>
+                        <p>{{ $basic['basic_title'] }}</p>
                     </div>
                     <ul class="footer-social md-mb-30">
                         <li>
-                            <a href="#" target="_blank"><span><i class="fa fa-facebook"></i></span></a>
+                            <a href="{{ $social['sm_facebook'] }}" target="_blank"><span><i
+                                        class="fa fa-facebook"></i></span></a>
                         </li>
                         <li>
-                            <a href="# " target="_blank"><span><i class="fa fa-twitter"></i></span></a>
+                            <a href="{{ $social['sm_twitter'] }} " target="_blank"><span><i
+                                        class="fa fa-twitter"></i></span></a>
                         </li>
 
                         <li>
-                            <a href="# " target="_blank"><span><i class="fa fa-pinterest-p"></i></span></a>
+                            <a href="{{ $social['sm_linkedin'] }} " target="_blank"><span><i
+                                        class="fa fa-linkedin"></i></span></a>
                         </li>
                         <li>
-                            <a href="# " target="_blank"><span><i class="fa fa-instagram"></i></span></a>
+                            <a href="{{ $social['sm_instagram'] }} " target="_blank"><span><i
+                                        class="fa fa-instagram"></i></span></a>
                         </li>
 
                     </ul>
@@ -43,18 +51,18 @@
                     <ul class="address-widget">
                         <li>
                             <i class="flaticon-location"></i>
-                            <div class="desc">374 FA Tower, William S Blvd 2721, IL, USA</div>
+                            <div class="desc">{{ $con_info['cont_add1'] }}</div>
                         </li>
                         <li>
                             <i class="flaticon-call"></i>
                             <div class="desc">
-                                <a href="tel:(+880)155-69569">(+880)155-69569</a>
+                                <a href="tel:{{ $con_info['cont_phone1'] }}">{{ $con_info['cont_phone1'] }}</a>
                             </div>
                         </li>
                         <li>
                             <i class="flaticon-email"></i>
                             <div class="desc">
-                                <a href="mailto:support@rstheme.com">support@rstheme.com</a>
+                                <a href="mailto:{{ $con_info['cont_email1'] }}">{{ $con_info['cont_email1'] }}</a>
                             </div>
                         </li>
                         <li>
@@ -65,16 +73,31 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <h3 class="widget-title">Newsletter</h3>
                     <p class="widget-desc">We denounce with righteous and in and dislike men who are so beguiled and
                         demo realized.</p>
-                    <p>
-                        <input type="email" name="EMAIL" placeholder="Your email address" required="">
-                        <em class="paper-plane"><input type="submit" value="Sign up"></em>
-                        <i class="flaticon-send"></i>
-                    </p>
+                    <form action="{{ route('website.newsletter') }}" method="POST">
+                        @csrf
+                        <p>
+                            <input type="email" name="ns_email" placeholder="Your email address" required="">
+                            
+                            <button class="paper-plane"><input type="submit" value="Sign up"></button>
+                            <i class="flaticon-send"></i>
+                        </p>
+                    </form>
+                    
+                    @if (Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                            <strong>{{ Session::get('success') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                 </div>
+
             </div>
         </div>
     </div>
@@ -92,7 +115,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="copyright">
-                        <p>&copy; 2021 All Rights Reserved. Developed By <a href="https://coderkhayrul.xyz/">Khayrul Shanto</a>
+                        <p>&copy; 2021 All Rights Reserved. Developed By <a href="https://coderkhayrul.xyz/">Khayrul
+                                Shanto</a>
                         </p>
                     </div>
                 </div>

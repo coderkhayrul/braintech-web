@@ -2,16 +2,19 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    @php
+        $basic = App\Models\Basic::where('id', 1)->where('basic_status', 1)->firstOrFail();
+    @endphp
     <!-- meta tag -->
     <meta charset="utf-8">
-    <title>Braintech - IT Solutions and Technology Startup HTML Template</title>
+    <title>{{ $basic['basic_company'] . $basic['basic_title'] }}</title>
     <meta name="description" content="">
     <!-- responsive tag -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon -->
     <link rel="apple-touch-icon" href="apple-touch-icon.html">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('website') }}/assets/images/fav.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('uploads/basic/' . $basic['basic_favicon']) }}">
     <!-- Bootstrap v4.4.1 css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('website') }}/assets/css/bootstrap.min.css">
     <!-- font-awesome css -->

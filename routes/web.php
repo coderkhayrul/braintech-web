@@ -45,6 +45,7 @@ Route::get('/our-team', [WebsiteController::class, 'ourteam'])->name('website.ou
 Route::get('/case-studies', [WebsiteController::class, 'casestudies'])->name('website.casestudies');
 Route::get('/blog', [WebsiteController::class, 'blog'])->name('website.blog');
 Route::get('/contact-us', [WebsiteController::class, 'contactus'])->name('website.contactus');
+Route::post('/newsletter', [WebsiteController::class, 'newsletter'])->name('website.newsletter');
 
 // Admin Route List
 Route::prefix('dashboard')->group(function () {

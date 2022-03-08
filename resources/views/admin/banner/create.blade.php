@@ -45,6 +45,18 @@
                         </div>
                     </div>
                     <div class="row mb-3 mt-3">
+                        <label for="name" class="col-3 col-form-label">Middle Title <strong
+                                class="text-danger">*</strong></label>
+                        <div class="col-9">
+                            <input type="text" class="form-control @error('ban_mid_title') is-invalid @enderror" id="ban_mid_title" name="ban_mid_title" placeholder="Banner Title">
+                            @error('ban_mid_title')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3 mt-3">
                         <label for="name" class="col-3 col-form-label">SubTitle <strong
                                 class="text-danger">*</strong></label>
                         <div class="col-9">

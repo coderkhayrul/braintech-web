@@ -66,12 +66,15 @@
                             </a>
                         </li>
                     </ul>
+                    @php
+                        $social = App\Models\SocialMedia::where('id', 1)->where('sm_status', 1)->firstOrFail();
+                    @endphp
                     <div class="toolbar-sl-share">
                         <ul class="social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="{{ $social->sm_facebook }}"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="{{ $social->sm_twitter }}"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="{{ $social->sm_linkedin }}"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="{{ $social->sm_instagram }}"><i class="fa fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>

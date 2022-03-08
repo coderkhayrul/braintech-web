@@ -144,13 +144,15 @@ class BannerController extends Controller
             'ban_status' => 1,
             'updated_at' => Carbon::now()->toDateTimeString()
         ]);
+
+        // Banner Image Update
         if ($request->hasFile('ban_image')) {
             $image = $request->file('ban_image');
             $imageName = $id . time() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->save('uploads/banner/' . $imageName);
 
             Banner::where('ban_id', $id)->update([
-                'banner_image' => $imageName,
+                'ban_image' => $imageName,
                 'updated_at' => Carbon::now()->toDateTimeString(),
             ]);
         }

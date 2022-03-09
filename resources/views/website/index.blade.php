@@ -288,6 +288,12 @@
     <!-- Process Section End -->
 
     <!-- Project Section Start -->
+    @php
+    $projects = App\Models\Project::where('project_status', 1)
+        ->orderBy('project_order', 'DESC')
+        ->limit(4)
+        ->get();
+    @endphp
     <div class="rs-project bg5 style1 pt-120 md-pt-80">
         <div class="container">
             <div class="sec-title2 text-center mb-45 md-mb-30">
@@ -303,172 +309,24 @@
                 data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="3" data-md-device-nav="true"
                 data-md-device-dots="false">
-                <div class="project-item">
-                    <div class="project-img">
-                        <a href="case-studies-style1.html"><img
-                                src="{{ asset('website') }}/assets/images/project/main-home/1.jpg" alt="images"></a>
+                @foreach ($projects as $project)
+                    <div class="project-item">
+                        <div class="project-img">
+                            <a href="#"><img src="{{ asset('uploads/project/' . $project['project_image']) }}"
+                                    alt=""></a>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="title"><a
+                                    href="case-studies-style1.html">{{ $project->project_title }}</a></h3>
+                            <span class="category"><a
+                                    href="case-studies-style1.html">{{ $project->proCategory->procate_name }}</a></span>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3 class="title"><a href="case-studies-style1.html">Product Design</a></h3>
-                        <span class="category"><a href="case-studies-style1.html">IT Technology</a></span>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-img">
-                        <a href="case-studies-style1.html"><img
-                                src="{{ asset('website') }}/assets/images/project/main-home/2.jpg" alt="images"></a>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="title"><a href="case-studies-style1.html">Product Engineering</a></h3>
-                        <span class="category"><a href="case-studies-style1.html">IT Technology</a></span>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-img">
-                        <a href="case-studies-style1.html"><img
-                                src="{{ asset('website') }}/assets/images/project/main-home/3.jpg" alt="images"></a>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="title"><a href="case-studies-style1.html">Analytic Solutions</a></h3>
-                        <span class="category"><a href="case-studies-style1.html">IT Technology</a></span>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-img">
-                        <a href="case-studies-style1.html"><img
-                                src="{{ asset('website') }}/assets/images/project/main-home/4.jpg" alt="images"></a>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="title"><a href="case-studies-style1.html">Growth Strategies</a></h3>
-                        <span class="category"><a href="case-studies-style1.html">IT Technology</a></span>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-img">
-                        <a href="case-studies-style1.html"><img
-                                src="{{ asset('website') }}/assets/images/project/main-home/5.jpg" alt="images"></a>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="title"><a href="case-studies-style1.html">Platform Integration</a></h3>
-                        <span class="category"><a href="case-studies-style1.html">IT Technology</a></span>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-img">
-                        <a href="case-studies-style1.html"><img
-                                src="{{ asset('website') }}/assets/images/project/main-home/6.jpg" alt="images"></a>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="title"><a href="case-studies-style1.html">Innovative Interfaces</a></h3>
-                        <span class="category"><a href="case-studies-style1.html">IT Technology</a></span>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
     <!-- Project Section End -->
-
-    <!-- Pricing section start -->
-    {{-- <div class="rs-pricing white-bg pt-255 pb-150 md-pb-80">
-        <div class="container">
-            <div class="sec-title2 text-center mb-45">
-                <span class="sub-text">Pricing</span>
-                <h2 class="title">
-                    Our Pricing Plan
-                </h2>
-                <div class="heading-line">
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 md-mb-50">
-                    <div class="pricing-table new-style">
-                        <div class="pricing-badge">
-                            Silver
-                        </div>
-                        <div class="pricing-icon">
-                            <img src="{{ asset('website') }}/assets/images/pricing/main-home/icons/1.png" alt="">
-                        </div>
-                        <div class="pricing-table-price">
-                            <div class="pricing-table-bags">
-                                <span class="pricing-currency">$</span>
-                                <span class="table-price-text">29.99</span>
-                                <span class="table-period">Monthly Package</span>
-                            </div>
-                        </div>
-                        <div class="pricing-table-body">
-                            <ul>
-                                <li><i class="fa fa-check"></i><span>Powerful Admin Panel</span></li>
-                                <li><i class="fa fa-check"></i><span>1 Native Android App</span></li>
-                                <li><i class="fa fa-close"></i><span>Multi-Language Support</span></li>
-                                <li><i class="fa fa-check"></i><span>Support via E-mail and Phone</span></li>
-                            </ul>
-                        </div>
-                        <div class="btn-part">
-                            <a class="readon buy-now" href="single-team.html">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 md-mb-50">
-                    <div class="pricing-table primary-bg">
-                        <div class="pricing-badge white-color-bg">
-                            Gold
-                        </div>
-                        <div class="pricing-icon">
-                            <img src="{{ asset('website') }}/assets/images/pricing/main-home/icons/2.png" alt="">
-                        </div>
-                        <div class="pricing-table-price">
-                            <div class="pricing-table-bags">
-                                <span class="pricing-currency">$</span>
-                                <span class="table-price-text">39.99</span>
-                                <span class="table-period">Monthly Package</span>
-                            </div>
-                        </div>
-                        <div class="pricing-table-body">
-                            <ul>
-                                <li><i class="fa fa-check"></i><span>Powerful Admin Panel</span></li>
-                                <li><i class="fa fa-check"></i><span>2 Native Android App</span></li>
-                                <li><i class="fa fa-check"></i><span>Multi-Language Support</span></li>
-                                <li><i class="fa fa-check"></i><span>Support via E-mail and Phone</span></li>
-                            </ul>
-                        </div>
-                        <div class="btn-part">
-                            <a class="readon buy-now" href="single-team.html">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="pricing-table new-style">
-                        <div class="pricing-badge">
-                            Platinum
-                        </div>
-                        <div class="pricing-icon">
-                            <img src="{{ asset('website') }}/assets/images/pricing/main-home/icons/3.png" alt="">
-                        </div>
-                        <div class="pricing-table-price">
-                            <div class="pricing-table-bags">
-                                <span class="pricing-currency">$</span>
-                                <span class="table-price-text">79.99</span>
-                                <span class="table-period">Monthly Package</span>
-                            </div>
-                        </div>
-                        <div class="pricing-table-body">
-                            <ul>
-                                <li><i class="fa fa-check"></i><span>Powerful Admin Panel</span></li>
-                                <li><i class="fa fa-check"></i><span>3 Native Android App</span></li>
-                                <li><i class="fa fa-check"></i><span>Multi-Language Support</span></li>
-                                <li><i class="fa fa-check"></i><span>Support via E-mail and Phone</span></li>
-                            </ul>
-                        </div>
-                        <div class="btn-part">
-                            <a class="readon buy-now" href="single-team.html">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- Pricing section end -->
 
     <!-- Testimonial Section Start -->
     @php

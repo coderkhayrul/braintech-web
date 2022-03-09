@@ -15,11 +15,12 @@ class CreateTestimonialsTable extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->bigIncrements('tm_id');
-            $table->string('tm_name',50);
-            $table->string('tm_designation',100)->nullable();
-            $table->string('tm_company',100)->nullable();
+            $table->string('tm_name', 50);
+            $table->string('tm_position', 50);
+            $table->string('tm_designation', 100)->nullable();
+            $table->string('tm_company', 100)->nullable();
             $table->text('tm_feedback')->nullable();
-            $table->string('tm_image',50)->nullable();
+            $table->string('tm_image', 50)->nullable();
             $table->integer('tm_order')->nullable();
             $table->integer('tm_feature')->default(0);
             $table->integer('tm_creator')->nullable();

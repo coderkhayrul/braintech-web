@@ -39,8 +39,22 @@
                             <div class="col-9">
                                 <input type="text" value="{{ old('tm_name') }}"
                                     class="form-control @error('tm_name') is-invalid @enderror" id="tm_name" name="tm_name"
-                                    placeholder="Partner Title">
+                                    placeholder="Client Name">
                                 @error('tm_name')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3 mt-3">
+                            <label for="name" class="col-3 col-form-label">Client Position <strong
+                                    class="text-danger">*</strong></label>
+                            <div class="col-9">
+                                <input type="text" value="{{ old('tm_position') }}"
+                                    class="form-control @error('tm_position') is-invalid @enderror" id="tm_position"
+                                    name="tm_position" placeholder="Client Position">
+                                @error('tm_position')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

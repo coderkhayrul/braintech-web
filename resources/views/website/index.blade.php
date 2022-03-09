@@ -131,6 +131,7 @@
             </div>
         </div>
     </div>
+
     <!-- Services Section End -->
 
     <!-- Call Us Section Start -->
@@ -368,7 +369,7 @@
     <!-- Project Section End -->
 
     <!-- Pricing section start -->
-    <div class="rs-pricing white-bg pt-255 pb-150 md-pb-80">
+    {{-- <div class="rs-pricing white-bg pt-255 pb-150 md-pb-80">
         <div class="container">
             <div class="sec-title2 text-center mb-45">
                 <span class="sub-text">Pricing</span>
@@ -466,10 +467,16 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Pricing section end -->
 
     <!-- Testimonial Section Start -->
+    @php
+    $testimonials = App\Models\Testimonial::where('tm_status', 1)
+        ->orderBy('tm_order', 'DESC')
+        ->limit(4)
+        ->get();
+    @endphp
     <div class="rs-testimonial main-home style2 bg5 pt-120 pb-120 md-pt-80 md-pb-80">
         <div class="container">
             <div class="sec-title2 text-center mb-45">
@@ -484,142 +491,22 @@
                 data-center-mode="false" data-ipad-device2="1" data-ipad-device-nav2="false" data-ipad-device-dots2="true"
                 data-ipad-device="1" data-ipad-device-nav="false" data-ipad-device-dots="true" data-mobile-device="1"
                 data-mobile-device-nav="false" data-mobile-device-dots="false">
-                <div class="testi-item">
-                    <div class="author-desc">
-                        <div class="desc"><img class="quote"
-                                src="{{ asset('website') }}/assets/images/testimonial/main-home/quote-white.png"
-                                alt="">Capitalize on low
-                            hanging fruit to identify a ballpark value added activity to beta test. Override the
-                            digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along
-                            the information highway.</div>
-                        <div class="author-img">
-                            <img src="{{ asset('website') }}/assets/images/testimonial/main-home/1.jpg" alt="">
+                @foreach ($testimonials as $testimonial)
+                    <div class="testi-item">
+                        <div class="author-desc">
+                            <div class="desc"><img class="quote"
+                                    src="{{ asset('website') }}/assets/images/testimonial/main-home/quote-white.png"
+                                    alt="">{{ $testimonial['tm_feedback'] }}</div>
+                            <div class="author-img">
+                                <img src="{{ asset('uploads/testimonial/' . $testimonial['tm_image']) }}" alt="">
+                            </div>
+                        </div>
+                        <div class="author-part">
+                            <a class="name" href="#">{{ $testimonial['tm_name'] }}</a>
+                            <span class="designation">{{ $testimonial['tm_position'] }}</span>
                         </div>
                     </div>
-                    <div class="author-part">
-                        <a class="name" href="#">Mariya Khan</a>
-                        <span class="designation">CEO, Brick Consulting</span>
-                    </div>
-                </div>
-                <div class="testi-item">
-                    <div class="author-desc">
-                        <div class="desc"><img class="quote"
-                                src="{{ asset('website') }}/assets/images/testimonial/main-home/quote-white.png"
-                                alt="">Capitalize on low
-                            hanging fruit to identify a ballpark value added activity to beta test. Override the
-                            digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along
-                            the information highway.</div>
-                        <div class="author-img">
-                            <img src="{{ asset('website') }}/assets/images/testimonial/main-home/2.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="author-part">
-                        <a class="name" href="#">Sonia Akhter</a>
-                        <span class="designation">Graphic Designer</span>
-                    </div>
-                </div>
-                <div class="testi-item">
-                    <div class="author-desc">
-                        <div class="desc"><img class="quote"
-                                src="{{ asset('website') }}/assets/images/testimonial/main-home/quote-white.png"
-                                alt="">Capitalize on low
-                            hanging fruit to identify a ballpark value added activity to beta test. Override the
-                            digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along
-                            the information highway.</div>
-                        <div class="author-img">
-                            <img src="{{ asset('website') }}/assets/images/testimonial/main-home/3.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="author-part">
-                        <a class="name" href="#">Deluar Hossen</a>
-                        <span class="designation">Web Developer</span>
-                    </div>
-                </div>
-                <div class="testi-item">
-                    <div class="author-desc">
-                        <div class="desc"><img class="quote"
-                                src="{{ asset('website') }}/assets/images/testimonial/main-home/quote-white.png"
-                                alt="">Capitalize on low
-                            hanging fruit to identify a ballpark value added activity to beta test. Override the
-                            digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along
-                            the information highway.</div>
-                        <div class="author-img">
-                            <img src="{{ asset('website') }}/assets/images/testimonial/main-home/4.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="author-part">
-                        <a class="name" href="#">Asif Ahmed</a>
-                        <span class="designation">App Developer</span>
-                    </div>
-                </div>
-                <div class="testi-item">
-                    <div class="author-desc">
-                        <div class="desc"><img class="quote"
-                                src="{{ asset('website') }}/assets/images/testimonial/main-home/quote-white.png"
-                                alt="">Capitalize on low
-                            hanging fruit to identify a ballpark value added activity to beta test. Override the
-                            digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along
-                            the information highway.</div>
-                        <div class="author-img">
-                            <img src="{{ asset('website') }}/assets/images/testimonial/main-home/1.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="author-part">
-                        <a class="name" href="#">Mariya Khan</a>
-                        <span class="designation">CEO, Brick Consulting</span>
-                    </div>
-                </div>
-                <div class="testi-item">
-                    <div class="author-desc">
-                        <div class="desc"><img class="quote"
-                                src="{{ asset('website') }}/assets/images/testimonial/main-home/quote-white.png"
-                                alt="">Capitalize on low
-                            hanging fruit to identify a ballpark value added activity to beta test. Override the
-                            digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along
-                            the information highway.</div>
-                        <div class="author-img">
-                            <img src="{{ asset('website') }}/assets/images/testimonial/main-home/2.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="author-part">
-                        <a class="name" href="#">Sonia Akhter</a>
-                        <span class="designation">Graphic Designer</span>
-                    </div>
-                </div>
-                <div class="testi-item">
-                    <div class="author-desc">
-                        <div class="desc"><img class="quote"
-                                src="{{ asset('website') }}/assets/images/testimonial/main-home/quote-white.png"
-                                alt="">Capitalize on low
-                            hanging fruit to identify a ballpark value added activity to beta test. Override the
-                            digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along
-                            the information highway.</div>
-                        <div class="author-img">
-                            <img src="{{ asset('website') }}/assets/images/testimonial/main-home/3.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="author-part">
-                        <a class="name" href="#">Deluar Hossen</a>
-                        <span class="designation">Web Developer</span>
-                    </div>
-                </div>
-                <div class="testi-item">
-                    <div class="author-desc">
-                        <div class="desc"><img class="quote"
-                                src="{{ asset('website') }}/assets/images/testimonial/main-home/quote-white.png"
-                                alt="">Capitalize on low
-                            hanging fruit to identify a ballpark value added activity to beta test. Override the
-                            digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along
-                            the information highway.</div>
-                        <div class="author-img">
-                            <img src="{{ asset('website') }}/assets/images/testimonial/main-home/4.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="author-part">
-                        <a class="name" href="#">Asif Ahmed</a>
-                        <span class="designation">App Developer</span>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

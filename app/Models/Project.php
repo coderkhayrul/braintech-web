@@ -9,6 +9,9 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+
     public function proCategory()
     {
         return $this->belongsTo(ProjectCategory::class, 'procate_id', 'procate_id');

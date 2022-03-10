@@ -17,11 +17,14 @@ class CreateTeamMembersTable extends Migration
             $table->bigIncrements('team_id');
             $table->string('team_name', 50);
             $table->string('team_designation', 100)->nullable();
+            $table->string('team_email', 100)->nullable();
+            $table->string('team_phone', 100)->nullable();
             $table->string('team_facebook', 200)->nullable();
             $table->string('team_twitter', 200)->nullable();
             $table->string('team_linkedin', 200)->nullable();
             $table->string('team_instragram', 200)->nullable();
             $table->text('team_remarks')->nullable();
+            $table->text('team_description')->nullable();
             $table->string('team_image', 50)->nullable();
             $table->integer('team_order')->nullable();
             $table->integer('team_creator')->nullable();

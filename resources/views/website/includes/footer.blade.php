@@ -1,8 +1,14 @@
 <!-- Footer Start -->
 @php
-$basic = App\Models\Basic::where('id', 1)->where('basic_status', 1)->firstOrFail();
-$con_info = App\Models\ContactInformation::where('id', 1)->where('cont_status', 1)->firstOrFail();
-$social = App\Models\SocialMedia::where('id', 1)->where('sm_status', 1)->firstOrFail();
+$basic = App\Models\Basic::where('id', 1)
+    ->where('basic_status', 1)
+    ->firstOrFail();
+$con_info = App\Models\ContactInformation::where('id', 1)
+    ->where('cont_status', 1)
+    ->firstOrFail();
+$social = App\Models\SocialMedia::where('id', 1)
+    ->where('sm_status', 1)
+    ->firstOrFail();
 @endphp
 <footer id="rs-footer" class="rs-footer">
     <div class="footer-top">
@@ -10,7 +16,8 @@ $social = App\Models\SocialMedia::where('id', 1)->where('sm_status', 1)->firstOr
             <div class="row">
                 <div class="col-lg-3 col-md-12 col-sm-12 footer-widget">
                     <div class="footer-logo mb-30">
-                        <a href="index.html"><img src="{{ asset('uploads/basic/' . $basic['basic_logo']) }}" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('uploads/basic/' . $basic['basic_logo']) }}"
+                                alt=""></a>
                     </div>
                     <div class="textwidget pb-30">
                         <p>{{ $basic['basic_title'] }}</p>
@@ -36,14 +43,18 @@ $social = App\Models\SocialMedia::where('id', 1)->where('sm_status', 1)->firstOr
 
                     </ul>
                 </div>
+                @php
+                    $services = App\Models\Service::where('service_status', 1)
+                        ->Limit(5)
+                        ->orderBy('service_order', 'ASC')
+                        ->get();
+                @endphp
                 <div class="col-lg-3 col-md-12 col-sm-12 pl-45 md-pl-15 md-mb-30">
-                    <h3 class="widget-title">IT Services</h3>
+                    <h3 class="widget-title">Our Services</h3>
                     <ul class="site-map">
-                        <li><a href="software-development.html">Software Development</a></li>
-                        <li><a href="web-development.html">Web Development</a></li>
-                        <li><a href="analytic-solutions.html">Analytic Solutions</a></li>
-                        <li><a href="web-development.html">Cloud and DevOps</a></li>
-                        <li><a href="web-development.html">Product Design</a></li>
+                        @foreach ($services as $service)
+                            <li><a href="software-development.html">{{ $service['service_title'] }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12 md-mb-30">
@@ -82,17 +93,17 @@ $social = App\Models\SocialMedia::where('id', 1)->where('sm_status', 1)->firstOr
                         @csrf
                         <p>
                             <input type="email" name="ns_email" placeholder="Your email address" required="">
-                            
+
                             <button class="paper-plane"><input type="submit" value="Sign up"></button>
                             <i class="flaticon-send"></i>
                         </p>
                     </form>
-                    
+
                     @if (Session::has('success'))
                         <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
                             <strong>{{ Session::get('success') }}</strong>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                                <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                     @endif

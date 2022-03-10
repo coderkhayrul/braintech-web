@@ -33,146 +33,200 @@
                                 class="uil-trademark-circle"></i> All Team Member</a>
                     </div>
                     <div class="card-body">
-                        <div class="row mb-3 mt-3">
-                            <label for="name" class="col-3 col-form-label">Team Membar Name <strong
-                                    class="text-danger">*</strong></label>
-                            <div class="col-9">
-                                <input type="text" value="{{ old('team_name') }}"
-                                    class="form-control @error('team_name') is-invalid @enderror" id="team_name"
-                                    name="team_name" placeholder="Team Member Name">
-                                @error('team_name')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="row mb-3 mt-3">
-                            <label for="name" class="col-3 col-form-label">Designation <strong
-                                    class="text-danger">*</strong></label>
-                            <div class="col-9">
-                                <input type="text" value="{{ old('team_designation') }}"
-                                    class="form-control @error('team_designation') is-invalid @enderror"
-                                    id="team_designation" name="team_designation" placeholder="Enter Designation">
-                                @error('team_designation')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="row mb-3 mt-3">
-                            <label for="name" class="col-3 col-form-label">Facebook Url <strong
-                                    class="text-danger">*</strong></label>
-                            <div class="col-9">
-                                <div class="input-group flex-nowrap">
-                                    <span class="input-group-text" id="basic-addon1"><i class="uil-facebook"></i></span>
-                                    <input type="text" class="form-control @error('team_facebook') is-invalid @enderror"
-                                        placeholder="facebook url" name="team_facebook"
-                                        value="{{ old('team_facebook') }}">
-                                    @error('team_facebook')
+                        <div class="row">
+                            <div class="col-6 mb-3 mt-3">
+                                <label for="name" class="col-3 col-form-label">Membar Name <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <input type="text" value="{{ old('team_name') }}"
+                                        class="form-control @error('team_name') is-invalid @enderror" id="team_name"
+                                        name="team_name" placeholder="Team Member Name">
+                                    @error('team_name')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mb-3 mt-3">
-                            <label for="name" class="col-3 col-form-label">Twitter Url <strong
-                                    class="text-danger">*</strong></label>
-                            <div class="col-9">
-                                <div class="input-group flex-nowrap">
-                                    <span class="input-group-text" id="basic-addon1"><i class="uil-twitter"></i></span>
-                                    <input type="text" class="form-control @error('team_twitter') is-invalid @enderror"
-                                        placeholder="twitter url" name="team_twitter" value="{{ old('team_twitter') }}">
-                                    @error('team_twitter')
+                            <div class="col-6 mb-3 mt-3">
+                                <label for="name" class="col-3 col-form-label">Designation <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <input type="text" value="{{ old('team_designation') }}"
+                                        class="form-control @error('team_designation') is-invalid @enderror"
+                                        id="team_designation" name="team_designation" placeholder="Enter Designation">
+                                    @error('team_designation')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mb-3 mt-3">
-                            <label for="name" class="col-3 col-form-label">Linkedin Url <strong
-                                    class="text-danger">*</strong></label>
-                            <div class="col-9">
-                                <div class="input-group flex-nowrap">
-                                    <span class="input-group-text" id="basic-addon1"><i class="uil-linkedin"></i></span>
-                                    <input type="text" class="form-control @error('team_linkedin') is-invalid @enderror"
-                                        placeholder="Linkidin url" name="team_linkedin"
-                                        value="{{ old('team_linkedin') }}">
-                                    @error('team_linkedin')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-3 mt-3">
-                            <label for="name" class="col-3 col-form-label">Instragram Url <strong
-                                    class="text-danger">*</strong></label>
-                            <div class="col-9">
-                                <div class="input-group flex-nowrap">
-                                    <span class="input-group-text" id="basic-addon1"><i class="uil-instagram"></i></span>
-                                    <input type="text" class="form-control @error('team_instragram') is-invalid @enderror"
-                                        placeholder="instragram url" name="team_instragram"
-                                        value="{{ old('team_instragram') }}">
-                                    @error('team_instragram')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-3 col-form-label">Order By <strong
-                                    class="text-danger">*</strong></label>
-                            <div class="col-9">
-                                <input type="number" value="{{ old('team_order') }}"
-                                    class="form-control @error('team_order') is-invalid @enderror" id="team_order"
-                                    name="team_order" placeholder="Team Member Order">
-                                @error('team_order')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                            <div class="col-6 mb-3 mt-3">
+                                <label for="name" class="col-3 col-form-label">Member Email <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <input type="text" value="{{ old('team_email') }}"
+                                        class="form-control @error('team_email') is-invalid @enderror" id="team_email"
+                                        name="team_email" placeholder="Enter Email">
+                                    @error('team_email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
+                            <div class="col-6 mb-3 mt-3">
+                                <label for="name" class="col-3 col-form-label">Member Phone <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <input type="text" value="{{ old('team_phone') }}"
+                                        class="form-control @error('team_phone') is-invalid @enderror" id="team_phone"
+                                        name="team_phone" placeholder="Enter Phone Number">
+                                    @error('team_phone')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
 
-                        <div class="row mb-3">
-                            <label for="feedback" class="col-3 col-form-label">Remarks <strong
-                                    class="text-danger">*</strong></label>
-                            <div class="col-9">
-                                <textarea class="form-control @error('team_remarks') is-invalid @enderror"
-                                    placeholder="Leave a remaks here" name="team_remarks" id="team_remarks"
-                                    style="height: 100px" value="{{ old('team_remarks') }}"></textarea>
-                                @error('team_remarks')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
+                            <div class="col-6 mb-3 mt-3">
+                                <label for="name" class="col-3 col-form-label">Facebook Url <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text" id="basic-addon1"><i
+                                                class="uil-facebook"></i></span>
+                                        <input type="text" class="form-control @error('team_facebook') is-invalid @enderror"
+                                            placeholder="facebook url" name="team_facebook"
+                                            value="{{ old('team_facebook') }}">
+                                        @error('team_facebook')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
-                                @enderror
+                                </div>
                             </div>
-                        </div>
+                            <div class="col-6 mb-3 mt-3">
+                                <label for="name" class="col-3 col-form-label">Twitter Url <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text" id="basic-addon1"><i
+                                                class="uil-twitter"></i></span>
+                                        <input type="text" class="form-control @error('team_twitter') is-invalid @enderror"
+                                            placeholder="twitter url" name="team_twitter"
+                                            value="{{ old('team_twitter') }}">
+                                        @error('team_twitter')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-3 mt-3">
+                                <label for="name" class="col-3 col-form-label">Linkedin Url <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text" id="basic-addon1"><i
+                                                class="uil-linkedin"></i></span>
+                                        <input type="text" class="form-control @error('team_linkedin') is-invalid @enderror"
+                                            placeholder="Linkidin url" name="team_linkedin"
+                                            value="{{ old('team_linkedin') }}">
+                                        @error('team_linkedin')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-3 mt-3">
+                                <label for="name" class="col-3 col-form-label">Instragram Url <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <div class="input-group flex-nowrap">
+                                        <span class="input-group-text" id="basic-addon1"><i
+                                                class="uil-instagram"></i></span>
+                                        <input type="text"
+                                            class="form-control @error('team_instragram') is-invalid @enderror"
+                                            placeholder="instragram url" name="team_instragram"
+                                            value="{{ old('team_instragram') }}">
+                                        @error('team_instragram')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="row mb-3">
-                            <label for="image" class="col-3 col-form-label">Image Upload</label>
-                            <div class="col-6">
-                                <input type="file" id="example-fileinput" name="team_image"
-                                    class="form-control @error('team_image') is-invalid @enderror">
-                                @error('team_image')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                            <div class="col-6 mb-3">
+                                <label for="email" class="col-3 col-form-label">Order By <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <input type="number" value="{{ old('team_order') }}"
+                                        class="form-control @error('team_order') is-invalid @enderror" id="team_order"
+                                        name="team_order" placeholder="Team Member Order">
+                                    @error('team_order')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
-                            <div class="col-3 text-center">
-                                <img id="preview-image" src="{{ asset('uploads/noimage.png') }}" alt="image"
-                                    class="img-fluid rounded" width="100" />
+
+
+                            <div class="row mb-3">
+                                <label for="feedback" class="col-3 col-form-label">Remarks <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <textarea class="form-control @error('team_remarks') is-invalid @enderror"
+                                        placeholder="Leave a remaks here" name="team_remarks" id="team_remarks"
+                                        style="height: 100px" value="{{ old('team_remarks') }}"></textarea>
+                                    @error('team_remarks')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="feedback" class="col-3 col-form-label">Description <strong
+                                        class="text-danger">*</strong></label>
+                                <div class="col-12">
+                                    <textarea class="form-control @error('team_description') is-invalid @enderror"
+                                        placeholder="Leave a description here" name="team_description" id="team_description"
+                                        style="height: 100px" value="{{ old('team_description') }}"></textarea>
+                                    @error('team_description')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image" class="col-3 col-form-label">Image Upload</label>
+                                <div class="col-6">
+                                    <input type="file" id="example-fileinput" name="team_image"
+                                        class="form-control @error('team_image') is-invalid @enderror">
+                                    @error('team_image')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-3 text-center">
+                                    <img id="preview-image" src="{{ asset('uploads/noimage.png') }}" alt="image"
+                                        class="img-fluid rounded" width="100" />
+                                </div>
                             </div>
                         </div>
                     </div>

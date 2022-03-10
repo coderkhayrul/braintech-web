@@ -43,11 +43,15 @@ Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
 Route::get('/about', [WebsiteController::class, 'about'])->name('website.about');
 Route::get('/service', [WebsiteController::class, 'service'])->name('website.service');
 Route::get('/our-team', [WebsiteController::class, 'ourteam'])->name('website.ourteam');
+Route::get('/our-team-single', [WebsiteController::class, 'ourteam_single'])->name('website.ourteam.single');
 Route::get('/case-studies', [WebsiteController::class, 'casestudies'])->name('website.casestudies');
 Route::get('/case-studies-single', [WebsiteController::class, 'casestudies_single'])->name('website.casestudie.single');
 Route::get('/blog', [WebsiteController::class, 'blog'])->name('website.blog');
 Route::get('/contact-us', [WebsiteController::class, 'contactus'])->name('website.contactus');
 Route::post('/newsletter', [WebsiteController::class, 'newsletter'])->name('website.newsletter');
+
+Route::post('/contact-submit', [WebsiteController::class, 'contact_submit'])->name('website.contact-submit');
+
 
 // Admin Route List
 Route::prefix('dashboard')->group(function () {

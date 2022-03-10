@@ -63,8 +63,18 @@ class WebsiteController extends Controller
         }
     }
 
+    public function contact_submit(Request $request)
+    {
+        return $request->all();
+    }
+
     public function casestudies_single()
     {
         return view('website.casestudies_single');
+    }
+
+    public function ourteam_single()
+    {
+        return view('website.single-team');
     }
 }

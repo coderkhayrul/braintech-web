@@ -28,12 +28,14 @@
                         <div class="team-item-wrap">
                             <div class="team-wrap">
                                 <div class="image-inner">
-                                    <a href="#"><img src="{{ asset('uploads/teammember/' . $teammember['team_image']) }}"
+                                    <a href="{{ route('website.ourteam.single') }}"><img
+                                            src="{{ asset('uploads/teammember/' . $teammember['team_image']) }}"
                                             alt=""></a>
                                 </div>
                             </div>
                             <div class="team-content text-center">
-                                <h4 class="person-name"><a href="single-team.html">{{ $teammember['team_name'] }}</a>
+                                <h4 class="person-name"><a
+                                        href="{{ route('website.ourteam.single') }}">{{ $teammember['team_name'] }}</a>
                                 </h4>
                                 <span class="designation">{{ $teammember['team_designation'] }}</span>
                                 <ul class="team-social">

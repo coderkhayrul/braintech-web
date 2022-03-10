@@ -6,7 +6,7 @@
             <h1 class="page-title">Our Team</h1>
             <ul>
                 <li title="Braintech - IT Solutions and Technology Startup HTML Template">
-                    <a class="active" href="index.html">Home</a>
+                    <a class="active" href="{{ route('website.home') }}">Home</a>
                 </li>
                 <li>Our Team</li>
             </ul>
@@ -28,43 +28,32 @@
                         <div class="team-item-wrap">
                             <div class="team-wrap">
                                 <div class="image-inner">
-                                    <a href="#"><img src="{{ asset('website') }}/assets/images/team/style1/1.jpg"
+                                    <a href="#"><img src="{{ asset('uploads/teammember/' . $teammember['team_image']) }}"
                                             alt=""></a>
                                 </div>
                             </div>
                             <div class="team-content text-center">
-                                <h4 class="person-name"><a href="single-team.html">Makhaia Antitni</a></h4>
-                                <span class="designation">President & CEO</span>
+                                <h4 class="person-name"><a href="single-team.html">{{ $teammember['team_name'] }}</a>
+                                </h4>
+                                <span class="designation">{{ $teammember['team_designation'] }}</span>
                                 <ul class="team-social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                    <li><a target="_blank" href="{{ $teammember['team_facebook'] }}"><i
+                                                class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li><a target="_blank" href="{{ $teammember['team_instragram'] }}"><i
+                                                class="fa fa-instagram"></i></a>
+                                    </li>
+                                    <li><a target="_blank" href="{{ $teammember['team_twitter'] }}"><i
+                                                class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li><a target="_blank" href="{{ $teammember['team_linkedin'] }}"><i
+                                                class="fa fa-linkedin"></i></a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 @endforeach
-                <div class="col-lg-4 col-md-6 mb-50">
-                    <div class="team-item-wrap">
-                        <div class="team-wrap">
-                            <div class="image-inner">
-                                <a href="#"><img src="{{ asset('website') }}/assets/images/team/style1/1.jpg" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="team-content text-center">
-                            <h4 class="person-name"><a href="single-team.html">Makhaia Antitni</a></h4>
-                            <span class="designation">President & CEO</span>
-                            <ul class="team-social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

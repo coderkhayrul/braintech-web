@@ -5,8 +5,8 @@
         <div class="breadcrumbs-inner text-center">
             <h1 class="page-title">Services</h1>
             <ul>
-                <li title="Braintech - IT Solutions and Technology Startup HTML Template">
-                    <a class="active" href="index.html">Home</a>
+                <li title="Braintech - IT Solutions and Technology">
+                    <a class="active" href="{{ route('website.home') }}">Home</a>
                 </li>
                 <li>Services</li>
             </ul>

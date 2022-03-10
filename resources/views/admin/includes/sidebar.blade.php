@@ -70,12 +70,30 @@
                     <span> SERVICES </span>
                 </a>
             </li>
+
             <li class="side-nav-item">
-                <a href="{{ route('team-member.index') }}" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarteam" aria-expanded="false" aria-controls="sidebaruUser"
+                    class="side-nav-link">
                     <i class="uil-trademark-circle"></i>
                     <span> TEAM MEMBER </span>
+                    <span class="menu-arrow"></span>
                 </a>
+                <div class="collapse" id="sidebarteam">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('team-member.index') }}">ALL TEAM MEMBER</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('team-member.create') }}">ADD TEAM MEMBER</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('team-skill.index') }}">MEMBER SKILLS</a>
+                        </li>
+                    </ul>
+                </div>
             </li>
+
+
             <li class="side-nav-item">
                 <a href="{{ route('client.index') }}" class="side-nav-link">
                     <i class="uil-book-reader"></i>

@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TeamMemberController;
+use App\Http\Controllers\Admin\TeamSkillController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Website\WebsiteController;
 use App\Models\ContactMessage;
@@ -43,6 +44,7 @@ Route::get('/about', [WebsiteController::class, 'about'])->name('website.about')
 Route::get('/service', [WebsiteController::class, 'service'])->name('website.service');
 Route::get('/our-team', [WebsiteController::class, 'ourteam'])->name('website.ourteam');
 Route::get('/case-studies', [WebsiteController::class, 'casestudies'])->name('website.casestudies');
+Route::get('/case-studies-single', [WebsiteController::class, 'casestudies_single'])->name('website.casestudie.single');
 Route::get('/blog', [WebsiteController::class, 'blog'])->name('website.blog');
 Route::get('/contact-us', [WebsiteController::class, 'contactus'])->name('website.contactus');
 Route::post('/newsletter', [WebsiteController::class, 'newsletter'])->name('website.newsletter');
@@ -154,6 +156,15 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/team/member/edit/{slug}', [TeamMemberController::class, 'edit'])->name('team-member.edit');
     Route::put('/team/member/{slug}', [TeamMemberController::class, 'update'])->name('team-member.update');
     Route::delete('/team/member/{slug}', [TeamMemberController::class, 'destroy'])->name('team-member.destroy');
+
+    // TEAM SKILL ROUTE LIST
+    Route::get('/team/skill', [TeamSkillController::class, 'index'])->name('team-skill.index');
+    Route::get('/team/skill/create', [TeamSkillController::class, 'create'])->name('team-skill.create');
+    Route::post('/team/skill', [TeamSkillController::class, 'store'])->name('team-skill.store');
+    Route::get('/team/skill/show/{slug}', [TeamSkillController::class, 'show'])->name('team-skill.show');
+    Route::get('/team/skill/edit/{slug}', [TeamSkillController::class, 'edit'])->name('team-skill.edit');
+    Route::put('/team/skill/{slug}', [TeamSkillController::class, 'update'])->name('team-skill.update');
+    Route::delete('/team/skill/{slug}', [TeamSkillController::class, 'destroy'])->name('team-skill.destroy');
 
     // CLIENT ROUTE LIST
     Route::get('/client', [ClientController::class, 'index'])->name('client.index');

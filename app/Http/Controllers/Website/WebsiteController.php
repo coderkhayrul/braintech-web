@@ -42,8 +42,9 @@ class WebsiteController extends Controller
         return view('website.contact');
     }
 
-    public function newsletter(Request $request){
-        $this->validate($request,[
+    public function newsletter(Request $request)
+    {
+        $this->validate($request, [
             'ns_email' => 'required|email'
         ]);
         $slug = uniqid();
@@ -60,5 +61,10 @@ class WebsiteController extends Controller
             Session::flash('error', 'Subscribe Failed!');
             return redirect()->back();
         }
+    }
+
+    public function casestudies_single()
+    {
+        return view('website.casestudies_single');
     }
 }

@@ -61,45 +61,90 @@
                         <div class="sec-title2 mb-40">
                             <span class="sub-text contact mb-15">Get In Touch</span>
                             <h2 class="title testi-title">Fill The Form Below</h2>
-
                         </div>
-                        <div id="form-messages"></div>
+                        {{-- Error Alert Notification --}}
+                        @if (Session::has('success'))
+                            <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                                <strong>{{ Session::get('success') }}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @elseif (Session::has('error'))
+                            <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                                <strong>{{ Session::get('error') }}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+
                         <form action="{{ route('website.contact-submit') }}" method="post">
                             @csrf
-                            {{-- <fieldset> --}}
-                            <div class="row">
-                                <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
-                                    <input class="from-control" type="text" name="cm_name" placeholder="Name">
-                                </div>
-                                <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
-                                    <input class="from-control" type="email" name="cm_email" placeholder="E-Mail">
-                                </div>
-                                <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
-                                    <input class="from-control" type="text" name="cm_phone" placeholder="Phone Number">
-                                </div>
-                                <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
-                                    <input class="from-control" type="text" name="cm_subject" placeholder="Your Subject">
-                                </div>
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
+                                        <input class="from-control @error('cm_name') is-invalid @enderror" type="text"
+                                            name="cm_name" placeholder="Name">
+                                        @error('cm_name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
+                                        <input class="from-control @error('cm_email') is-invalid @enderror" type="email"
+                                            name="cm_email" placeholder="E-Mail">
+                                        @error('cm_email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
+                                        <input class="from-control @error('cm_phone') is-invalid @enderror" type="text"
+                                            name="cm_phone" placeholder="Phone Number">
+                                        @error('cm_phone')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
+                                        <input class="from-control @error('cm_subject') is-invalid @enderror" type="text"
+                                            name="cm_subject" placeholder="Your Subject">
+                                        @error('cm_subject')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
 
-                                <div class="col-lg-12 mb-30">
-                                    <textarea class="from-control" name="cm_message"
-                                        placeholder="Your message Here"></textarea>
+                                    <div class="col-lg-12 mb-30">
+                                        <textarea class="from-control @error('cm_message') is-invalid @enderror"
+                                            name="cm_message" placeholder="Your message Here"></textarea>
+                                        @error('cm_message')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="btn-part">
-                                <div class="form-group mb-0">
-                                    <input class="readon learn-more submit" type="submit" value="Submit Now">
+                                <div class="btn-part">
+                                    <div class="form-group mb-0">
+                                        <input class="readon learn-more submit" type="submit" value="Submit Now">
+                                    </div>
                                 </div>
-                            </div>
-                            {{-- </fieldset> --}}
+                            </fieldset>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
         <div class="map-canvas pt-120 md-pt-80">
+            {{-- https://maps.google.com/maps?q=rstheme&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed --}}
             <iframe
-                src="https://maps.google.com/maps?q=rstheme&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"></iframe>
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3651.189228340115!2d90.37656646492894!3d23.754359194542044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1646990074529!5m2!1sen!2sbd"></iframe>
         </div>
     </div>
     <!-- Contact Section Start -->

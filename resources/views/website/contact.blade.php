@@ -5,8 +5,8 @@
         <div class="breadcrumbs-inner text-center">
             <h1 class="page-title">Contact</h1>
             <ul>
-                <li title="Braintech - IT Solutions and Technology Startup HTML Template">
-                    <a class="active" href="index.html">Home</a>
+                <li title="Braintech - IT Solutions and Technology">
+                    <a class="active" href="{{ route('website.home') }}">Home</a>
                 </li>
                 <li>Contact</li>
             </ul>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="address-text">
                                 <span class="label">Email:</span>
-                                <a href="tel:123222-8888">{{ $contact_info['cont_email1'] }}</a>
+                                <a href="tel:01835061968">{{ $contact_info['cont_email1'] }}</a>
                             </div>
                         </div>
                         <div class="address-box mb-25">
